@@ -9,7 +9,12 @@ SOURCES += main.cpp \
 
 RESOURCES += gallery.qrc
 
-LIBS += -L$$OUT_PWD/../gallery-core/ -lgallery-core
+#LIBS += -L$$OUT_PWD/../gallery-core/ -lgallery-core
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../gallery-core/release/ -lgallery-core
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../gallery-core/debug/ -lgallery-core
+else:unix: LIBS += -L$$OUT_PWD/../gallery-core/ -lgallery-core
+
 INCLUDEPATH += $$PWD/../gallery-core
 DEPENDPATH += $$PWD/../gallery-core
 
