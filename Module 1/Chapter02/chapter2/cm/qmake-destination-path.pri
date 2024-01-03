@@ -1,3 +1,5 @@
+include(./qmake-target-platform.pri)
+
 platform_path = unknown-platform
 compiler_path = unknown-compiler
 processor_path = unknown-processor

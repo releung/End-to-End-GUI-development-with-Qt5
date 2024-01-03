@@ -1,3 +1,5 @@
+include(./root-config.pri)
+
 win32 {
     CONFIG += PLATFORM_WIN
     message(PLATFORM_WIN)
