@@ -1,3 +1,5 @@
+include(./qmake-target-platform.pri)
+
 platform_path = unknown-platform
 compiler_path = unknown-compiler
 processor_path = unknown-processor
@@ -29,6 +31,7 @@ PROCESSOR_x64 {
 PROCESSOR_x86 {
     processor_path = x86
 }
+message(processor_path: $${PROCESSOR_x64})
 
 BUILD_DEBUG {
     build_path = debug
@@ -37,4 +40,5 @@ BUILD_DEBUG {
 }
 
 DESTINATION_PATH = $$platform_path/$$compiler_path/$$processor_path/$$build_path
+#DESTINATION_PATH = $$platform_path/$$compiler_path/$$build_path
 message(Dest path: $${DESTINATION_PATH})

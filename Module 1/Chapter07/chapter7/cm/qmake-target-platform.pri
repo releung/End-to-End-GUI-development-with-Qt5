@@ -1,16 +1,34 @@
+include(./root-config.pri)
+
 win32 {
     CONFIG += PLATFORM_WIN
     message(PLATFORM_WIN)
+
     win32-g++ {
         CONFIG += COMPILER_GCC
         message(COMPILER_GCC)
+        QMAKE_TARGET.arch = x86  # 为 32 位 GCC 编译器指定 x86 架构
     }
+
+    win32-g++-64 {
+        CONFIG += COMPILER_GCC
+        message(COMPILER_GCC)
+        QMAKE_TARGET.arch = x86_64  # 为 64 位 GCC 编译器指定 x86_64 架构
+    }
+
     win32-msvc2017 {
         CONFIG += COMPILER_MSVC2017
         message(COMPILER_MSVC2017)
-        win32-msvc2017:QMAKE_TARGET.arch = x86_64
+        QMAKE_TARGET.arch = x86  # 为 MSVC2017 32 位编译器指定 x86 架构
+    }
+
+    win32-msvc2017-64 {
+        CONFIG += COMPILER_MSVC2017
+        message(COMPILER_MSVC2017)
+        QMAKE_TARGET.arch = x86_64  # 为 MSVC2017 64 位编译器指定 x86_64 架构
     }
 }
+
 
 linux {
     CONFIG += PLATFORM_LINUX
